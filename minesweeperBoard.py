@@ -1,4 +1,5 @@
-import functools, random, sys
+import random
+import sys
 
 
 def generate_board(board_width=10, board_height=20, mine_amount=25):
