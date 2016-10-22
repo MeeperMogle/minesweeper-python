@@ -3,21 +3,19 @@ import sys
 
 
 def generate_board(board_width=10, board_height=20, mine_amount=25):
-    total_squares = board_width * board_height
-
     mine_positions = []
-    squares = [0] * total_squares
+    squares = [0] * board_width * board_height
 
     # Place logical mines randomly across map
     for i in range(0, mine_amount):
         new_mine_burial_position = -1
         while new_mine_burial_position in [mine_positions, -1]:
-            new_mine_burial_position = random.randint(0, total_squares-1)
+            new_mine_burial_position = random.randint(0, len(squares)-1)
         mine_positions.append(new_mine_burial_position)
 
     # Put numbers on the rest of the map
     for i in range(0, len(squares)):
-        squares[i] = get_adjacent_mine_count(i, mine_positions, total_squares, board_width)
+        squares[i] = get_adjacent_mine_count(i, mine_positions, len(squares), board_width)
 
     # Return list/array of map
     return squares
