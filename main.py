@@ -1,3 +1,3 @@
 import minesweeperBoard
 
-print(minesweeperBoard.generateBoard())
+print(minesweeperBoard.generate_board())
